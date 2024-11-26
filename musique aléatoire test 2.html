@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Aléatoire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .loader {
+            border: 6px solid #f4f4f9;
+            border-top: 6px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Découvre un album au hasard !</h1>
+        <p>Un instant, nous sélectionnons un album pour toi...</p>
+        <div class="loader"></div>
+    </div>
+    <script>
+        // Liste des albums (nom et lien)
+        const albums = [
+            { nom: "Sincèrement", lien: "https://open.spotify.com/intl-fr/album/573smzehvvzd4Nl5QoW1MW?si=Hs5IqAlLToyMdrWniuWCiw" },
+            { nom: "Liens du 100", lien: "https://open.spotify.com/intl-fr/album/69njUAy8iu7QDMUYRYTQc2?si=9ONZ3gPQTvGne7I225BfXg" },
+            { nom: "Ipséité", lien: "https://open.spotify.com/intl-fr/album/7ovdjtmV0Bkm4Xb4pqtrZt?si=OHedpjmzSLGSN8qsHuGgsA" }
+        ];
+
+        // Sélectionner un album aléatoire
+        const albumAleatoire = albums[Math.floor(Math.random() * albums.length)];
+
+        // Attendre 3 secondes avant de rediriger
+        setTimeout(() => {
+            window.location.href = albumAleatoire.lien;
+        }, 3000);
+    </script>
+</body>
+</html>
+
